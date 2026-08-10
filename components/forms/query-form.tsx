@@ -1,0 +1,242 @@
+'use client';
+
+import { useMemo, useState } from 'react';
+import { z } from 'zod';
+import { querySchema } from '@/lib/validations';
+
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+  consent: boolean;
+  honeypot: string;
+};
+
+type QueryFormProps = {
+  pageLabel: string;
+};
+
+const initialState: FormState = {
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  service: '',
+  message: '',
+  consent: false,
+  honeypot: ''
+};
+
+export function QueryForm({ pageLabel }: QueryFormProps) {
+  const [formState, setFormState] = useState<FormState>(initialState);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState<string>('');
+
+  const canSubmit = useMemo(() => status !== 'loading', [status]);
+
+  const handleChange = (field: keyof FormState, value: string | boolean) => {
+    setFormState((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: '' }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus('loading');
+    setMessage('');
+    setErrors({});
+
+    const payload = {
+      ...formState,
+      consent: formState.consent,
+      source: pageLabel,
+      honeypot: formState.honeypot
+    };
+
+    const parseResult = querySchema.safeParse(payload);
+    if (!parseResult.success) {
+      setStatus('error');
+      const fieldErrors: Record<string, string> = {};
+      parseResult.error.errors.forEach((error) => {
+        if (error.path[0]) {
+          fieldErrors[error.path[0] as string] = error.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/queries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(parseResult.data)
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result?.message || 'Something went wrong.');
+      }
+
+      setStatus('success');
+      setMessage('Your enquiry has been received. We will contact you shortly.');
+      setFormState(initialState);
+    } catch (error) {
+      setStatus('error');
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : 'Unable to submit your enquiry right now. Please try again later.'
+      );
+    }
+  };
+
+  return (
+    <form className="grid gap-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft md:grid-cols-2" onSubmit={handleSubmit} noValidate>
+      <input type="hidden" name="source" value={pageLabel} />
+      <div className="grid gap-5">
+        <div className="form-field">
+          <label htmlFor="name" className="label">
+            Full Name*
+          </label>
+          <input
+            id="name"
+            className="input"
+            type="text"
+            value={formState.name}
+            onChange={(event) => handleChange('name', event.target.value)}
+            placeholder="Enter your full name"
+            disabled={!canSubmit}
+          />
+          {errors.name ? <p className="field-error">{errors.name}</p> : null}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="email" className="label">
+            Email Address*
+          </label>
+          <input
+            id="email"
+            className="input"
+            type="email"
+            value={formState.email}
+            onChange={(event) => handleChange('email', event.target.value)}
+            placeholder="you@company.com"
+            disabled={!canSubmit}
+          />
+          {errors.email ? <p className="field-error">{errors.email}</p> : null}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="phone" className="label">
+            Phone Number*
+          </label>
+          <input
+            id="phone"
+            className="input"
+            type="tel"
+            value={formState.phone}
+            onChange={(event) => handleChange('phone', event.target.value)}
+            placeholder="+91 98765 43210"
+            disabled={!canSubmit}
+          />
+          {errors.phone ? <p className="field-error">{errors.phone}</p> : null}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="company" className="label">
+            Company
+          </label>
+          <input
+            id="company"
+            className="input"
+            type="text"
+            value={formState.company}
+            onChange={(event) => handleChange('company', event.target.value)}
+            placeholder="Optional"
+            disabled={!canSubmit}
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="service" className="label">
+            Service / Requirement
+          </label>
+          <input
+            id="service"
+            className="input"
+            type="text"
+            value={formState.service}
+            onChange={(event) => handleChange('service', event.target.value)}
+            placeholder="What are you looking for?"
+            disabled={!canSubmit}
+          />
+        </div>
+      </div>
+
+      <div className="grid gap-5">
+        <div className="form-field md:col-span-2">
+          <label htmlFor="message" className="label">
+            Message*
+          </label>
+          <textarea
+            id="message"
+            className="textarea min-h-[172px] resize-none"
+            value={formState.message}
+            onChange={(event) => handleChange('message', event.target.value)}
+            placeholder="Tell us more about your requirement or project scope"
+            disabled={!canSubmit}
+          />
+          {errors.message ? <p className="field-error">{errors.message}</p> : null}
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+          <label className="flex cursor-pointer items-start gap-3 text-sm text-slate-700 md:col-span-2">
+            <input
+              type="checkbox"
+              checked={formState.consent}
+              onChange={(event) => handleChange('consent', event.target.checked)}
+              className="mt-1 h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500"
+              disabled={!canSubmit}
+            />
+            <span>
+              I agree to be contacted by Vertex Solutions regarding my enquiry. *
+            </span>
+          </label>
+          {errors.consent ? <p className="field-error md:col-span-2">{errors.consent}</p> : null}
+        </div>
+
+        <input
+          type="text"
+          name="honeypot"
+          value={formState.honeypot}
+          onChange={(event) => handleChange('honeypot', event.target.value)}
+          autoComplete="off"
+          className="sr-only"
+          tabIndex={-1}
+          aria-hidden="true"
+        />
+
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-6">
+          <div>
+            {status === 'success' ? (
+              <p className="text-sm font-semibold text-emerald-700">{message}</p>
+            ) : status === 'error' ? (
+              <p className="text-sm font-semibold text-rose-700">{message}</p>
+            ) : (
+              <p className="text-sm text-slate-500">We aim to follow up within 24 hours.</p>
+            )}
+          </div>
+          <button type="submit" className="btn-primary w-full md:w-auto" disabled={!canSubmit}>
+            {status === 'loading' ? 'Sending...' : 'Submit Enquiry'}
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+}

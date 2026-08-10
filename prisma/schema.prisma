@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Query {
+  id                        String   @id @default(cuid())
+  name                      String
+  email                     String
+  phone                     String
+  company                   String?
+  service                   String?
+  message                   String
+  source                    String
+  consent                   Boolean
+  status                    String   @default("new")
+  emailNotificationSent     Boolean  @default(false)
+  emailNotificationSentAt   DateTime?
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}

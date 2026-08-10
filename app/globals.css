@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f7f7f5;
+  color: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7f7f5;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #c59d62;
+  color: #ffffff;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  position: relative;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #111827;
+  padding: 1rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #2f877f;
+  box-shadow: 0 0 0 4px rgba(79, 174, 150, 0.12);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+}
+
+.field-error {
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.section-copy {
+  max-width: 44rem;
+  color: #4b5563;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.06);
+  border-radius: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #2f877f;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 1rem 1.75rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #256f68;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(47, 135, 127, 0.08);
+  color: #1f2937;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 1rem 1.75rem;
+  font-weight: 700;
+}
+
+.btn-secondary:hover {
+  background: rgba(47, 135, 127, 0.14);
+}
+
+.floating-panel {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
