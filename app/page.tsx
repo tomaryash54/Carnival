@@ -4,46 +4,40 @@ import { QueryForm } from '@/components/forms/query-form';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'Home | Vertex Solutions',
-  description: 'Premium service solutions for modern businesses — discover consulting, execution, and support designed to move your organisation forward.'
+  title: siteConfig.title,
+  description: siteConfig.description
 };
 
 export default function HomePage() {
   return (
-    <div className="space-y-24 py-16 lg:py-24">
-      <section className="container overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-soft">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div className="p-10 sm:p-14 lg:p-20">
-            <span className="inline-flex rounded-full bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">
-              Premium service delivery for growth-focused teams
-            </span>
-            <h1 className="mt-8 text-5xl font-black tracking-tight text-slate-950 sm:text-6xl">
-              Solutions built around your needs, not the other way around.
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Vertex Solutions helps organisations embrace smarter operations, better client engagement, and reliable service execution with clarity and confidence.
+    <div className="space-y-16 py-12 lg:py-20">
+      <section className="relative">
+        <div className="container grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="py-12 lg:py-20">
+            <p className="section-eyebrow">PLAY • EXPLORE • IMAGINE</p>
+            <h1 className="mt-6 section-heading">Where Little Adventures Begin</h1>
+            <p className="mt-6 section-lead">
+              An exciting indoor play zone designed for big laughs, endless adventures and unforgettable family moments.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link href="/contact" className="btn-primary">
-                Get a Quote
+                Plan Your Visit
               </Link>
-              <Link href="/services" className="btn-secondary">
-                Explore Services
+              <Link href="/contact" className="btn-secondary">
+                Book a Birthday Party
               </Link>
             </div>
           </div>
 
-          <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] bg-slate-900 sm:min-h-[520px]">
-            <div className="absolute inset-0 bg-hero-gradient opacity-90" />
+          <div className="relative min-h-[380px] overflow-hidden rounded-lg">
             <Image
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
-              alt="Team discussing business strategy"
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1400&q=80"
+              alt="Children playing in indoor playground"
               fill
               className="object-cover"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent px-8 py-8 text-white">
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-100">Corporate service excellence</p>
-              <p className="mt-3 text-3xl font-semibold">Strong planning, dependable delivery.</p>
+            <div className="absolute inset-0 pointer-events-none">
+              {/* decorative floating shapes could be added via CSS */}
             </div>
           </div>
         </div>
@@ -52,29 +46,29 @@ export default function HomePage() {
       <section className="container">
         <div className="grid gap-6 md:grid-cols-4">
           {siteConfig.heroHighlights.map((item) => (
-            <div key={item.label} className="rounded-[1.5rem] border border-slate-200 bg-white p-7 text-center shadow-soft">
-              <p className="text-4xl font-semibold text-brand-700">{item.value}</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.24em] text-slate-500">{item.label}</p>
+            <div key={item.label} className="card p-6 text-center">
+              <p className="text-2xl font-bold text-brand">{item.value}</p>
+              <p className="mt-2 text-sm uppercase tracking-[0.18em] muted">{item.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-        <div className="space-y-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">About Vertex Solutions</p>
-          <h2 className="section-heading">A trusted partner for organisations that need responsive service and strategic support.</h2>
-          <p className="section-copy">
-            We combine operational insight, digital fluency, and project discipline to create tailored solutions for service-led businesses. Our team focuses on clear communication, risk reduction, and measurable progress.
+        <div>
+          <p className="section-eyebrow">LET THE FUN BEGIN</p>
+          <h2 className="section-heading">More than a play area — it's a world of discovery.</h2>
+          <p className="mt-4 section-lead">
+            At PlayNest, children move, imagine and make memories while parents relax in comfortable, supervised surroundings. Our spaces are designed to be exciting for kids and reassuring for parents.
           </p>
-          <Link href="/about" className="btn-secondary">
-            Learn about our story
+          <Link href="/about" className="btn-secondary mt-6">
+            Learn about PlayNest
           </Link>
         </div>
-        <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] bg-slate-100">
+        <div className="relative min-h-[360px] overflow-hidden rounded-lg">
           <Image
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"
-            alt="Operations team collaborating"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
+            alt="Children sliding into ball pit"
             fill
             className="object-cover"
           />
@@ -82,139 +76,127 @@ export default function HomePage() {
       </section>
 
       <section className="container space-y-8">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Our services</p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              Expert services built to help you move faster.
-            </h2>
+            <p className="section-eyebrow">ACTIVITIES</p>
+            <h2 className="section-heading">Play experiences for every adventurer</h2>
           </div>
           <Link href="/services" className="btn-secondary">
-            View all services
+            Explore all experiences
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {siteConfig.services.map((service) => (
-            <div key={service.title} className="card p-8">
-              <p className="text-brand-700">Service</p>
-              <h3 className="mt-4 text-xl font-semibold text-slate-950">{service.title}</h3>
-              <p className="mt-4 text-slate-600">{service.description}</p>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="card p-6 lg:col-span-2">
+            <h3 className="text-2xl font-semibold">Soft Play Arena & Ball Pit</h3>
+            <p className="mt-3 muted">A colourful padded arena ideal for climbing, tumbling and joyful discovery for younger children.</p>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <Image src="https://images.unsplash.com/photo-1544117510-3e0f0f5f6b27?auto=format&fit=crop&w=800&q=80" alt="soft play" width={600} height={360} className="rounded-md object-cover" />
+              <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=800&q=80" alt="ball pit" width={600} height={360} className="rounded-md object-cover" />
             </div>
-          ))}
+          </div>
+
+          <div className="card p-6">
+            <h3 className="text-2xl font-semibold">Trampolines & Active Play</h3>
+            <p className="mt-3 muted">Supervised sessions for high-energy fun, with safety harnesses and trained staff on hand.</p>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="text-2xl font-semibold">Toddler Cove</h3>
+            <p className="mt-3 muted">A calm, sensory-friendly corner for 0–3 years with low-impact toys and soft textures.</p>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="text-2xl font-semibold">Slides & Climbing</h3>
+            <p className="mt-3 muted">Giant slides and safe climbing structures crafted for confident play and exploration.</p>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="text-2xl font-semibold">Interactive Games</h3>
+            <p className="mt-3 muted">Tech-enabled play stations and group games for family challenges and skill-building activities.</p>
+          </div>
         </div>
       </section>
 
-      <section className="container grid gap-12 rounded-[2rem] border border-slate-200 bg-white p-10 shadow-soft lg:p-16">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section className="container rounded-lg border border-slate-100 bg-white p-10 shadow-soft">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Why choose us</p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              We create structured, modern service experiences that your team can depend on.
-            </h2>
-            <p className="mt-5 max-w-xl text-slate-600">
-              From planning to launch, our approach is anchored in transparency, strong project rhythm, and trusted operational guidance.
-            </p>
+            <p className="section-eyebrow">WHY PARENTS LOVE PLAYNEST</p>
+            <h2 className="section-heading">A safe, clean and joyful place for kids and parents</h2>
+            <p className="mt-4 muted">Staffed by trained supervisors, rigorously cleaned, and designed with sight-lines and comfort for parents in mind.</p>
+            <ul className="mt-6 grid gap-3">
+              <li className="font-semibold">• Safety-first programs and certified equipment</li>
+              <li className="font-semibold">• Comfortable parent lounges with cafe-style refreshments</li>
+              <li className="font-semibold">• Flexible party packages and dedicated hosts</li>
+            </ul>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {siteConfig.featurePoints.map((item) => (
-              <div key={item.title} className="rounded-[1.5rem] border border-slate-200 p-6">
-                <p className="text-lg font-semibold text-slate-950">{item.title}</p>
-                <p className="mt-3 text-slate-600">{item.description}</p>
-              </div>
-            ))}
+          <div className="relative min-h-[300px] overflow-hidden rounded-md">
+            <Image src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1000&q=80" alt="parents watching children play" fill className="object-cover" />
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden rounded-[2rem] bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(197,157,98,0.35),_transparent_45%)]" />
-        <div className="container relative grid gap-10 py-20 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-200">Featured insight</p>
-            <h2 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
-              Built for businesses seeking premium execution with clarity.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-slate-200 sm:text-lg">
-              Our work is designed to feel confident and polished, with every project backed by strong communication and practical delivery frameworks.
-            </p>
-          </div>
-          <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] bg-slate-800 sm:min-h-[420px]">
-            <Image
-              src="https://images.unsplash.com/photo-1494173853739-c21f58b16055?auto=format&fit=crop&w=1200&q=80"
-              alt="Professional business interior"
-              fill
-              className="object-cover opacity-90"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="container space-y-10">
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-end">
+      <section className="container space-y-8">
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Testimonials</p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              Trusted by business leaders who need confident delivery.
-            </h2>
+            <p className="section-eyebrow">MAKE THEIR BIG DAY EVEN BIGGER</p>
+            <h2 className="section-heading">Birthday Parties at PlayNest</h2>
+            <p className="mt-4 muted">We host memorable, stress-free parties with tailored packages, decorations and a dedicated host so families can enjoy the celebration.</p>
+            <Link href="/contact" className="btn-primary mt-6">Plan a Birthday Party</Link>
           </div>
-          <Link href="/testimonials" className="btn-secondary w-fit">
-            Read more stories
-          </Link>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            {
-              quote: 'Vertex Solutions helped our team create a responsive support process with high visibility and clarity.',
-              name: 'Nisha Mehta',
-              role: 'Operations Lead'
-            },
-            {
-              quote: 'Their project delivery was precise, professional, and easy to align with our internal stakeholders.',
-              name: 'Amit Sharma',
-              role: 'Head of Growth'
-            },
-            {
-              quote: 'The collaboration felt premium from day one — they understood our priorities and stayed on track.',
-              name: 'Rhea Kapoor',
-              role: 'Service Director'
-            }
-          ].map((item) => (
-            <div key={item.name} className="card p-8">
-              <p className="text-slate-700">“{item.quote}”</p>
-              <div className="mt-6">
-                <p className="font-semibold text-slate-950">{item.name}</p>
-                <p className="text-sm text-slate-500">{item.role}</p>
-              </div>
-            </div>
-          ))}
+          <div className="relative min-h-[280px] overflow-hidden rounded-md">
+            <Image src="https://images.unsplash.com/photo-1505577058444-a3dab14b3d02?auto=format&fit=crop&w=1000&q=80" alt="kids birthday party" fill className="object-cover" />
+          </div>
         </div>
       </section>
 
       <section className="container">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Start your enquiry</p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              Tell us what you need and our team will get back to you.
-            </h2>
-            <p className="mt-4 max-w-xl text-slate-600">
-              Submit your project details now for a prompt response from our consulting and execution specialists.
-            </p>
+            <p className="section-eyebrow">AGE GROUPS</p>
+            <h2 className="section-heading">Play sessions designed for every age</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className="card p-4 text-center">
+                <p className="font-semibold">Toddlers</p>
+                <p className="muted">0–3 years</p>
+              </div>
+              <div className="card p-4 text-center">
+                <p className="font-semibold">Little Explorers</p>
+                <p className="muted">4–7 years</p>
+              </div>
+              <div className="card p-4 text-center">
+                <p className="font-semibold">Big Adventurers</p>
+                <p className="muted">7–12 years</p>
+              </div>
+            </div>
           </div>
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft">
-            <QueryForm pageLabel="Home" />
+
+          <div className="rounded-lg border border-slate-100 bg-white p-6 shadow-soft">
+            <h3 className="text-xl font-semibold">Ready for Some Serious Fun?</h3>
+            <p className="mt-2 muted">Planning a visit, birthday party or group event? Tell us what you're looking for.</p>
+            <div className="mt-4">
+              <QueryForm pageLabel="Home" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="container rounded-[2rem] border border-slate-200 bg-white p-12 shadow-soft text-center">
-        <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Ready to turn the next chapter into a stronger operation?</h2>
-        <p className="mt-4 text-slate-600">Connect with Vertex Solutions today and receive a tailored plan for your business.</p>
-        <Link href="/contact" className="btn-primary mt-8 inline-block">
-          Contact Us
-        </Link>
+      <section className="container text-center">
+        <h2 className="section-heading">Hear from families who love PlayNest</h2>
+        <p className="mt-4 muted">Demo testimonials from parents (placeholder content)</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {[
+            { quote: "Such a wonderful place for kids! My daughter didn't want to leave.", name: 'Priya', meta: 'Parent' },
+            { quote: "The staff were friendly and the whole space felt clean and safe.", name: 'Rahul', meta: 'Parent' },
+            { quote: "Our son's birthday party was effortless — highly recommend!", name: 'Neha', meta: 'Parent' }
+          ].map((t) => (
+            <div key={t.name} className="card p-6">
+              <p className="italic">“{t.quote}”</p>
+              <p className="mt-4 font-semibold">{t.name}</p>
+              <p className="muted text-sm">{t.meta}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
-# Vertex Solutions
+# PlayNest
 
-Premium corporate website for a fictional service business. Built with Next.js, TypeScript, Tailwind CSS, Prisma, and Nodemailer.
+Premium indoor kids playzone demo site. Built with Next.js, TypeScript, Tailwind CSS, Prisma, and Nodemailer.
 
 ## Requirements
 
@@ -65,25 +65,19 @@ Update `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL` in `.env` with your own Google Maps e
 
 Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, and `SMTP_FROM` in `.env`.
 
-## Vercel deployment
+## Deployment
 
-This project is ready for deployment on Vercel.
+Push this repository to GitHub and deploy to your preferred host (Hostinger, Vercel, Railway, etc.).
 
-1. Push this repository to GitHub.
-2. Create a new Vercel project and connect it to the GitHub repository.
-3. Add the following environment variables in the Vercel dashboard:
-   - `DATABASE_URL`
-   - `SMTP_HOST`
-   - `SMTP_PORT`
-   - `SMTP_USER`
-   - `SMTP_PASSWORD`
-   - `SMTP_FROM`
-   - `QUERY_NOTIFICATION_EMAILS`
-   - `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL`
-   - `NEXT_PUBLIC_SITE_URL`
-4. Optionally add GitHub repository secrets if using the provided GitHub Actions workflow:
-   - `VERCEL_TOKEN`
-   - `VERCEL_ORG_ID`
-   - `VERCEL_PROJECT_ID`
+Add the following environment variables in your host dashboard:
+  - `DATABASE_URL`
+  - `SMTP_HOST`
+  - `SMTP_PORT`
+  - `SMTP_USER`
+  - `SMTP_PASSWORD`
+  - `SMTP_FROM`
+  - `QUERY_NOTIFICATION_EMAILS`
+  - `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL`
+  - `NEXT_PUBLIC_SITE_URL`
 
-The app will build with `npm run build` and deploy from the `main` branch using `.github/workflows/vercel-deploy.yml`.
+The app will build with `npm run build` and can be served with `npm start` in production.

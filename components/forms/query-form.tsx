@@ -154,7 +154,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
 
         <div className="form-field">
           <label htmlFor="company" className="label">
-            Company
+            Party / Group (optional)
           </label>
           <input
             id="company"
@@ -162,24 +162,30 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
             type="text"
             value={formState.company}
             onChange={(event) => handleChange('company', event.target.value)}
-            placeholder="Optional"
+            placeholder="e.g. 12 children / School visit"
             disabled={!canSubmit}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="service" className="label">
-            Service / Requirement
+            What are you interested in?
           </label>
-          <input
+          <select
             id="service"
             className="input"
-            type="text"
             value={formState.service}
             onChange={(event) => handleChange('service', event.target.value)}
-            placeholder="What are you looking for?"
             disabled={!canSubmit}
-          />
+          >
+            <option value="">Select an option</option>
+            <option value="General Visit">General Visit</option>
+            <option value="Birthday Party">Birthday Party</option>
+            <option value="Toddler Play">Toddler Play</option>
+            <option value="Group/School Visit">Group / School Visit</option>
+            <option value="Weekend Visit">Weekend Visit</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
       </div>
 
@@ -210,7 +216,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
               disabled={!canSubmit}
             />
             <span>
-              I agree to be contacted by Vertex Solutions regarding my enquiry. *
+              I agree to be contacted by PlayNest regarding my enquiry. *
             </span>
           </label>
           {errors.consent ? <p className="field-error md:col-span-2">{errors.consent}</p> : null}

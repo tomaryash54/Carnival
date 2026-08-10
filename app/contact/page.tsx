@@ -2,72 +2,60 @@ import { QueryForm } from '@/components/forms/query-form';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
-  title: 'Contact Us | Vertex Solutions',
-  description: 'Contact Vertex Solutions for premium business service support, operational consulting, and client experience strategy.'
+  title: `Contact | ${siteConfig.companyName}`,
+  description: 'Plan your visit, book a birthday party or enquire about group bookings at PlayNest.'
 };
 
 export default function ContactPage() {
   return (
-    <div className="space-y-20 py-16 lg:py-24">
-      <section className="container rounded-[2.5rem] border border-slate-200 bg-white p-12 shadow-soft">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+    <div className="space-y-12 py-12 lg:py-20">
+      <section className="container rounded-lg border border-slate-100 bg-white p-10 shadow-soft">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Get in touch</p>
-            <h1 className="mt-4 text-4xl font-semibold text-slate-950 sm:text-5xl">
-              Let’s discuss your requirements and create a service plan tailored to your team.
-            </h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
-              Use the contact details below or submit your enquiry directly through the form. We will reach out with a practical next step.
-            </p>
+            <p className="section-eyebrow">Let's Plan Your Visit</p>
+            <h1 className="mt-4 section-heading">Book a visit, party, or group event</h1>
+            <p className="mt-4 section-lead">Call, email or send an enquiry below — our team will help you pick the best package and timings.</p>
           </div>
-          <div className="rounded-[2rem] bg-slate-50 p-8">
-            <p className="text-sm uppercase tracking-[0.22em] text-brand-700">Contact information</p>
-            <div className="mt-6 space-y-4 text-slate-700">
+
+          <div className="rounded-md bg-slate-50 p-6">
+            <p className="text-sm uppercase tracking-[0.12em] font-semibold">Contact information</p>
+            <div className="mt-4 space-y-3">
               <div>
-                <p className="text-sm font-semibold">Phone</p>
-                <p>{siteConfig.phone}</p>
+                <p className="font-semibold">Phone</p>
+                <p className="muted">{siteConfig.phone}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold">Email</p>
-                <p>{siteConfig.email}</p>
+                <p className="font-semibold">Email</p>
+                <p className="muted">{siteConfig.email}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold">Address</p>
-                <p>{siteConfig.address}</p>
+                <p className="font-semibold">Address</p>
+                <p className="muted">{siteConfig.address}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold">Hours</p>
-                <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+                <p className="font-semibold">Opening hours</p>
+                <p className="muted">Mon – Sun: 9:00 AM – 8:00 PM</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-10 shadow-soft">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-700">Find us</p>
-          <h2 className="mt-4 text-3xl font-semibold text-slate-950 sm:text-4xl">Our Gurgaon placeholder location</h2>
-          <p className="mt-4 text-slate-600">
-            Visit our local office in Sector 47, Gurugram, or send an enquiry using the form. The map below is configured with a sample location for placeholder use.
-          </p>
-          <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-slate-200 shadow-soft">
-            <iframe
-              src={siteConfig.mapEmbedUrl}
-              title="Location map"
-              className="h-72 w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+      <section className="container grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="rounded-lg border border-slate-100 bg-white p-8 shadow-soft">
+          <p className="section-eyebrow">Find us</p>
+          <h2 className="section-heading mt-2">Visit PlayNest in Sector 47, Gurugram</h2>
+          <p className="muted mt-3">We're conveniently located. Use the map below for directions or contact us to plan a group visit.</p>
+          <div className="mt-6 overflow-hidden rounded-md border border-slate-100 shadow-sm">
+            <iframe src={siteConfig.mapEmbedUrl} title="PlayNest location" className="h-72 w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
-          <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="btn-secondary mt-6 inline-flex">
-            Get Directions
-          </a>
+          <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="btn-secondary mt-6 inline-flex">Get Directions</a>
         </div>
-        <div className="rounded-[2rem] bg-white p-8 shadow-soft">
-          <h2 className="text-2xl font-semibold text-slate-950">Send us a detailed enquiry</h2>
-          <p className="mt-3 text-slate-600">Complete the form below and include as much detail as possible about your project.</p>
-          <div className="mt-8">
+
+        <div className="rounded-lg bg-white p-6 shadow-soft">
+          <h2 className="text-2xl font-semibold">Planning a birthday party?</h2>
+          <p className="muted mt-2">Tell us your preferred date, number of children and any special requests — we'll handle the rest.</p>
+          <div className="mt-6">
             <QueryForm pageLabel="Contact Page" />
           </div>
         </div>

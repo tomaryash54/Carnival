@@ -14,7 +14,7 @@ export function SiteFooter() {
           <div className="space-y-4">
             <p className="text-2xl font-semibold">{siteConfig.companyName}</p>
             <p className="max-w-lg muted">
-              Vertex Solutions brings a premium service delivery experience to growing organisations. Clear communication, strong delivery and practical strategy.
+              Big adventures, little smiles — PlayNest is a premium indoor playzone built for joyful family moments, safe play and memorable celebrations.
             </p>
             <div className="flex flex-wrap gap-3 text-sm">
               {siteConfig.socialLinks.map((item) => (
