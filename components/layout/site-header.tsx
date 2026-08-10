@@ -9,9 +9,17 @@ import { siteConfig } from '@/lib/site-config';
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl shadow-sm">
+    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container flex items-center justify-between gap-6 py-4">
         <Link href="/" className="text-xl font-semibold tracking-tight text-slate-950">
           {siteConfig.companyName}
@@ -22,7 +30,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${pathname === item.href ? 'text-brand-700' : 'text-slate-600 hover:text-slate-950'}`}
+              className={`text-sm font-medium transition-colors ${pathname === item.href ? 'text-brand' : 'text-slate-600 hover:text-slate-900'}`}
             >
               {item.label}
             </Link>

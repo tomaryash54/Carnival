@@ -41,6 +41,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
   const handleChange = (field: keyof FormState, value: string | boolean) => {
     setFormState((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: '' }));
+    if (status === 'success') setStatus('idle');
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -97,7 +98,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
   };
 
   return (
-    <form className="grid gap-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-soft md:grid-cols-2" onSubmit={handleSubmit} noValidate>
+    <form className="grid gap-6 rounded-lg border border-slate-100 bg-white p-8 shadow-soft md:grid-cols-2" onSubmit={handleSubmit} noValidate>
       <input type="hidden" name="source" value={pageLabel} />
       <div className="grid gap-5">
         <div className="form-field">
@@ -106,12 +107,13 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
           </label>
           <input
             id="name"
-            className="input"
+            className={`input ${errors.name ? 'border-rose-500' : ''}`}
             type="text"
             value={formState.name}
             onChange={(event) => handleChange('name', event.target.value)}
             placeholder="Enter your full name"
             disabled={!canSubmit}
+            aria-invalid={!!errors.name}
           />
           {errors.name ? <p className="field-error">{errors.name}</p> : null}
         </div>
@@ -122,12 +124,13 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
           </label>
           <input
             id="email"
-            className="input"
+            className={`input ${errors.email ? 'border-rose-500' : ''}`}
             type="email"
             value={formState.email}
             onChange={(event) => handleChange('email', event.target.value)}
             placeholder="you@company.com"
             disabled={!canSubmit}
+            aria-invalid={!!errors.email}
           />
           {errors.email ? <p className="field-error">{errors.email}</p> : null}
         </div>
@@ -138,12 +141,13 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
           </label>
           <input
             id="phone"
-            className="input"
+            className={`input ${errors.phone ? 'border-rose-500' : ''}`}
             type="tel"
             value={formState.phone}
             onChange={(event) => handleChange('phone', event.target.value)}
             placeholder="+91 98765 43210"
             disabled={!canSubmit}
+            aria-invalid={!!errors.phone}
           />
           {errors.phone ? <p className="field-error">{errors.phone}</p> : null}
         </div>
@@ -186,11 +190,12 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
           </label>
           <textarea
             id="message"
-            className="textarea min-h-[172px] resize-none"
+            className={`textarea ${errors.message ? 'border-rose-500' : ''} min-h-[172px] resize-none`}
             value={formState.message}
             onChange={(event) => handleChange('message', event.target.value)}
             placeholder="Tell us more about your requirement or project scope"
             disabled={!canSubmit}
+            aria-invalid={!!errors.message}
           />
           {errors.message ? <p className="field-error">{errors.message}</p> : null}
         </div>
@@ -211,29 +216,24 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
           {errors.consent ? <p className="field-error md:col-span-2">{errors.consent}</p> : null}
         </div>
 
-        <input
-          type="text"
-          name="honeypot"
-          value={formState.honeypot}
-          onChange={(event) => handleChange('honeypot', event.target.value)}
-          autoComplete="off"
-          className="sr-only"
-          tabIndex={-1}
-          aria-hidden="true"
-        />
+        <input type="text" name="honeypot" value={formState.honeypot} onChange={(event) => handleChange('honeypot', event.target.value)} autoComplete="off" className="sr-only" tabIndex={-1} aria-hidden={"true"} />
 
         <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-6">
           <div>
             {status === 'success' ? (
-              <p className="text-sm font-semibold text-emerald-700">{message}</p>
+              <p className="text-sm font-semibold" style={{ color: 'rgb(16 185 129)' }}>{message}</p>
             ) : status === 'error' ? (
-              <p className="text-sm font-semibold text-rose-700">{message}</p>
+              <p className="text-sm font-semibold" style={{ color: '#d14343' }}>{message}</p>
             ) : (
-              <p className="text-sm text-slate-500">We aim to follow up within 24 hours.</p>
+              <p className="text-sm muted">We aim to follow up within 24 hours.</p>
             )}
           </div>
           <button type="submit" className="btn-primary w-full md:w-auto" disabled={!canSubmit}>
-            {status === 'loading' ? 'Sending...' : 'Submit Enquiry'}
+            {status === 'loading' ? (
+              <span className="inline-flex items-center gap-2">Sending... <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" strokeWidth="4" fill="none" strokeOpacity="0.2"></circle><path d="M4 12a8 8 0 018-8" stroke="white" strokeWidth="4" strokeLinecap="round" fill="none"></path></svg></span>
+            ) : (
+              'Submit Enquiry'
+            )}
           </button>
         </div>
       </div>
