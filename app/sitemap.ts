@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
+export const dynamic = 'force-static';
+
 export default function Sitemap(): MetadataRoute.Sitemap {
   const pages = ['/', '/about', '/services', '/specialty', '/testimonials', '/contact', '/privacy', '/terms'];
 
