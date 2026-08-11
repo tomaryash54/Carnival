@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: `Why Us | ${siteConfig.companyName}`,
-  description: 'Why PlayNest is special — safety, hygiene and a parent-friendly experience.'
+  description: `Why ${siteConfig.companyName} is special — safety, hygiene and a parent-friendly experience.`
 };
 
 const special = [
@@ -22,13 +22,13 @@ export default function SpecialtyPage() {
       <section className="container rounded-lg border border-slate-100 bg-white p-10 shadow-soft">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
-            <p className="section-eyebrow">WHY PLAYNEST IS SPECIAL</p>
-            <h1 className="mt-4 section-heading">What sets PlayNest apart</h1>
+            <p className="section-eyebrow">WHY VAMSKIDSZONE IS SPECIAL</p>
+            <h1 className="mt-4 section-heading">What sets Vamskidszone apart</h1>
             <p className="mt-4 section-lead">A safety-first, parent-friendly play experience with thoughtfully designed zones and attentive staff.</p>
             <Link href="/contact" className="btn-primary mt-6 inline-flex">Plan a Visit</Link>
           </div>
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1200&q=80" alt="playnest safety" fill className="object-cover" />
+            <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1200&q=80" alt="Vamskidszone safety" fill className="object-cover" />
           </div>
         </div>
       </section>

@@ -40,6 +40,18 @@ export default function HomePage() {
               <div className="decor-dot" style={{ bottom: '22%', left: '8%' }} />
               <div className="decor-spark" style={{ bottom: '18%', right: '16%' }} />
 
+              <div className="hero-sport-scene" aria-label="Animated child kicking a football">
+                <div className="kid-figure">
+                  <span className="head" />
+                  <span className="body" />
+                  <span className="arm arm--left" />
+                  <span className="arm arm--right" />
+                  <span className="leg leg--left" />
+                  <span className="leg leg--right" />
+                </div>
+                <div className="football" aria-hidden="true" />
+              </div>
+
               <div className="hero-card hero-card--main">
                 <Image
                   src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80"
@@ -145,7 +157,7 @@ export default function HomePage() {
       <section className="container section-shell">
         <div className="feature-spotlight">
           <div>
-            <p className="section-eyebrow" style={{ color: 'white' }}>Why parents love PlayNest</p>
+            <p className="section-eyebrow" style={{ color: 'white' }}>Why parents love Vamskidszone</p>
             <h2 className="section-heading" style={{ color: 'white' }}>A safe, clean and joyful place for the whole family.</h2>
             <p className="mt-4 text-base leading-7 text-slate-200">
               From thoughtful layouts to trained staff and relaxed parent zones, every detail is designed to make play both exciting and stress-free.

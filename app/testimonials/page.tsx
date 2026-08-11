@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: `Reviews | ${siteConfig.companyName}`,
-  description: 'Parent reviews and testimonials for PlayNest — demo placeholder content.'
+  description: `Parent reviews and testimonials for ${siteConfig.companyName} — demo placeholder content.`
 };
 
 const testimonials = [
@@ -20,7 +20,7 @@ export default function TestimonialsPage() {
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
             <p className="section-eyebrow">Reviews</p>
-            <h1 className="mt-4 section-heading">What parents say about PlayNest</h1>
+            <h1 className="mt-4 section-heading">What parents say about Vamskidszone</h1>
             <p className="mt-4 section-lead">Demo testimonials from families who enjoyed our play experiences and parties.</p>
           </div>
           <div className="rounded-md bg-slate-50 p-8">

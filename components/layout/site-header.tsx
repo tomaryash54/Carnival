@@ -21,8 +21,10 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="logo-mark" aria-label="PlayNest home">
-          <span className="logo-mark__badge" />
+        <Link href="/" className="logo-mark" aria-label="Vamskidszone home">
+          <span className="logo-mark__badge">
+            <span className="logo-mark__ball" aria-hidden="true" />
+          </span>
           <span>{siteConfig.companyName}</span>
         </Link>
 

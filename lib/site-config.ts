@@ -1,11 +1,11 @@
 export const siteConfig = {
-  companyName: 'PlayNest',
-  title: 'PlayNest | Indoor Kids Playzone & Birthday Parties',
+  companyName: 'Vamskidszone',
+  title: 'Vamskidszone | Indoor Kids Playzone & Birthday Parties',
   description:
-    'PlayNest is a premium indoor playzone where children explore, climb, jump and celebrate — designed for joyful family moments and safe adventures.',
+    'Vamskidszone is a premium indoor playzone where children explore, climb, jump and celebrate — designed for joyful family moments and safe adventures.',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   phone: '+91 98765 43210',
-  email: 'hello@playnest.example',
+  email: 'hello@vamskidszone.com',
   address: 'Sector 47, Gurugram, Haryana, India',
   ogImage: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80',
   mapEmbedUrl:

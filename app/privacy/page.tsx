@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | PlayNest',
-  description: 'Privacy policy for PlayNest demo site.'
+  title: 'Privacy Policy | Vamskidszone',
+  description: 'Privacy policy for Vamskidszone demo site.'
 };
 
 export default function PrivacyPage() {
@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <div className="container py-20">
       <div className="rounded-lg border border-slate-100 bg-white p-10 shadow-soft">
         <h1 className="text-3xl font-semibold text-slate-950">Privacy Policy</h1>
-        <p className="mt-4 muted">This placeholder policy explains how PlayNest handles contact enquiries submitted through the website.</p>
+        <p className="mt-4 muted">This placeholder policy explains how Vamskidszone handles contact enquiries submitted through the website.</p>
         <div className="mt-8 space-y-6 muted">
           <div>
             <h2 className="text-xl font-semibold text-slate-950">Data collection</h2>

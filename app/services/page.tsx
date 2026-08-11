@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: `Play Experiences | ${siteConfig.companyName}`,
-  description: 'Fun, safe and supervised play experiences for kids and families at PlayNest.'
+  description: `Fun, safe and supervised play experiences for kids and families at ${siteConfig.companyName}.`
 };
 
 const experiences = [

@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: `About | ${siteConfig.companyName}`,
-  description: 'More than a play area — the story and philosophy behind PlayNest.'
+  description: `More than a play area — the story and philosophy behind ${siteConfig.companyName}.`
 };
 
 export default function AboutPage() {
@@ -13,16 +13,16 @@ export default function AboutPage() {
       <section className="container rounded-lg border border-slate-100 bg-white p-12 shadow-soft">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
-            <p className="section-eyebrow">About PlayNest</p>
+            <p className="section-eyebrow">About Vamskidszone</p>
             <h1 className="mt-4 section-heading">More than a play area</h1>
             <p className="mt-4 section-lead">
-              PlayNest exists to create joyful, active and safe experiences where children can explore, move and imagine — and parents can relax knowing their little ones are in caring hands.
+              Vamskidszone exists to create joyful, active and safe experiences where children can explore, move and imagine — and parents can relax knowing their little ones are in caring hands.
             </p>
             <Link href="/contact" className="btn-primary mt-8 inline-flex">Plan a Visit</Link>
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80" alt="children playing at playnest" fill className="object-cover" />
+            <Image src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80" alt="children playing at Vamskidszone" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section className="container grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-center">
         <div>
           <h2 className="section-heading">Our story</h2>
-          <p className="section-lead">Founded to give families a premium indoor play experience, PlayNest combines thoughtful design, trained staff and clean, age-appropriate play zones so every visit feels special.</p>
+          <p className="section-lead">Founded to give families a premium indoor play experience, Vamskidszone combines thoughtful design, trained staff and clean, age-appropriate play zones so every visit feels special.</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="card p-6">
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <p className="muted mt-3">Smart sight-lines, comfortable seating and a dedicated cafe mean parents can enjoy a relaxed visit while children have full-on fun.</p>
           </div>
           <div className="rounded-md overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1000&q=80" alt="playnest interior" width={900} height={560} className="object-cover" />
+            <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1000&q=80" alt="Vamskidszone interior" width={900} height={560} className="object-cover" />
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata = {
   title: `Contact | ${siteConfig.companyName}`,
-  description: 'Plan your visit, book a birthday party or enquire about group bookings at PlayNest.'
+  description: `Plan your visit, book a birthday party or enquire about group bookings at ${siteConfig.companyName}.`
 };
 
 export default function ContactPage() {
@@ -44,7 +44,7 @@ export default function ContactPage() {
       <section className="container grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="rounded-lg border border-slate-100 bg-white p-8 shadow-soft">
           <p className="section-eyebrow">Find us</p>
-          <h2 className="section-heading mt-2">Visit PlayNest in Sector 47, Gurugram</h2>
+          <h2 className="section-heading mt-2">Visit Vamskidszone in Sector 47, Gurugram</h2>
           <p className="muted mt-3">We&apos;re conveniently located. Use the map below for directions or contact us to plan a group visit.</p>
           <div className="mt-6 overflow-hidden rounded-md border border-slate-100 shadow-sm">
             <iframe src={siteConfig.mapEmbedUrl} title="PlayNest location" className="h-72 w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />

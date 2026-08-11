@@ -219,7 +219,7 @@ export function QueryForm({ pageLabel, formId, hideSubmitButton = false, onSubmi
               disabled={!canSubmit}
             />
             <span>
-              I agree to be contacted by PlayNest regarding my enquiry. *
+              I agree to be contacted by Vamskidszone regarding my enquiry. *
             </span>
           </label>
           {errors.consent ? <p className="field-error md:col-span-2">{errors.consent}</p> : null}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { QueryForm } from '@/components/forms/query-form';
 
-const STORAGE_KEY = 'playnest-query-popup-dismissed';
+const STORAGE_KEY = 'vamskidszone-query-popup-dismissed';
 
 export function QueryPopup() {
   const [isOpen, setIsOpen] = useState(false);

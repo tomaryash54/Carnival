@@ -17,7 +17,7 @@ export function SiteFooter() {
               <span>{siteConfig.companyName}</span>
             </div>
             <p className="max-w-lg text-base leading-7 text-slate-300">
-              Big adventures, little smiles — PlayNest is a premium indoor playzone where children explore freely, parents relax confidently, and every visit feels like a memorable family day out.
+              Big adventures, little smiles — Vamskidszone is a premium indoor playzone where children explore freely, parents relax confidently, and every visit feels like a memorable family day out.
             </p>
             <div className="flex flex-wrap gap-3 text-sm">
               {siteConfig.socialLinks.map((item) => (
