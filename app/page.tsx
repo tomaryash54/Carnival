@@ -173,6 +173,12 @@ export default function HomePage() {
 
       <section className="container section-shell reveal reveal-delay-300">
         <div className="party-panel">
+          <div className="party-celebration" aria-hidden="true">
+            <span className="party-burst party-burst--1" />
+            <span className="party-burst party-burst--2" />
+            <span className="party-burst party-burst--3" />
+            <span className="party-burst party-burst--4" />
+          </div>
           <div className="party-layout">
             <div>
               <div className="party-tag">Birthday parties</div>
