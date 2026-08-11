@@ -17,6 +17,9 @@ type FormState = {
 
 type QueryFormProps = {
   pageLabel: string;
+  formId?: string;
+  hideSubmitButton?: boolean;
+  onSubmitSuccess?: () => void;
 };
 
 const initialState: FormState = {
@@ -30,7 +33,7 @@ const initialState: FormState = {
   honeypot: ''
 };
 
-export function QueryForm({ pageLabel }: QueryFormProps) {
+export function QueryForm({ pageLabel, formId, hideSubmitButton = false, onSubmitSuccess }: QueryFormProps) {
   const [formState, setFormState] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -87,6 +90,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
       setStatus('success');
       setMessage('Your enquiry has been received. We will contact you shortly.');
       setFormState(initialState);
+      onSubmitSuccess?.();
     } catch (error) {
       setStatus('error');
       setMessage(
@@ -98,7 +102,7 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
   };
 
   return (
-    <form className="grid gap-6 rounded-lg border border-slate-100 bg-white p-8 shadow-soft md:grid-cols-2" onSubmit={handleSubmit} noValidate>
+    <form id={formId} className="grid gap-6 rounded-lg border border-slate-100 bg-white p-8 shadow-soft md:grid-cols-2" onSubmit={handleSubmit} noValidate>
       <input type="hidden" name="source" value={pageLabel} />
       <div className="grid gap-5">
         <div className="form-field">
@@ -234,13 +238,15 @@ export function QueryForm({ pageLabel }: QueryFormProps) {
               <p className="text-sm muted">We aim to follow up within 24 hours.</p>
             )}
           </div>
-          <button type="submit" className="btn-primary w-full md:w-auto" disabled={!canSubmit}>
-            {status === 'loading' ? (
-              <span className="inline-flex items-center gap-2">Sending... <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" strokeWidth="4" fill="none" strokeOpacity="0.2"></circle><path d="M4 12a8 8 0 018-8" stroke="white" strokeWidth="4" strokeLinecap="round" fill="none"></path></svg></span>
-            ) : (
-              'Submit Enquiry'
-            )}
-          </button>
+          {!hideSubmitButton ? (
+            <button type="submit" className="btn-primary w-full md:w-auto" disabled={!canSubmit}>
+              {status === 'loading' ? (
+                <span className="inline-flex items-center gap-2">Sending... <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" strokeWidth="4" fill="none" strokeOpacity="0.2"></circle><path d="M4 12a8 8 0 018-8" stroke="white" strokeWidth="4" strokeLinecap="round" fill="none"></path></svg></span>
+              ) : (
+                'Submit Enquiry'
+              )}
+            </button>
+          ) : null}
         </div>
       </div>
     </form>
