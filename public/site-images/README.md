@@ -17,3 +17,6 @@ Expected files (PNG):
 - services-birthday-feature.png
 - specialty-hero.png
 - og-image.png
+- hero-panel-bg.png
+- feature-spotlight-bg.png
+- party-panel-bg.png
