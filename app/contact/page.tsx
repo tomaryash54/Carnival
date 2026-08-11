@@ -47,7 +47,7 @@ export default function ContactPage() {
           <h2 className="section-heading mt-2">Visit Vamskidszone in Sector 47, Gurugram</h2>
           <p className="muted mt-3">We&apos;re conveniently located. Use the map below for directions or contact us to plan a group visit.</p>
           <div className="mt-6 overflow-hidden rounded-md border border-slate-100 shadow-sm">
-            <iframe src={siteConfig.mapEmbedUrl} title="PlayNest location" className="h-72 w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <iframe src={siteConfig.mapEmbedUrl} title="Vamskidszone location" className="h-72 w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
           <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="btn-secondary mt-6 inline-flex">Get Directions</a>
         </div>

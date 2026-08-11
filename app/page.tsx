@@ -91,20 +91,11 @@ export default function HomePage() {
           <p className="section-eyebrow">Let the fun begin</p>
           <h2 className="section-heading">More than a play area — it’s a world of discovery.</h2>
           <p className="section-lead mt-4">
-            At PlayNest, children move, imagine and make memories while parents relax in comfortable, supervised surroundings. Every zone is thoughtfully designed to feel exciting, lively and reassuringly safe.
+            At Vamskidszone, children move, imagine and make memories while parents relax in comfortable, supervised surroundings. Every zone is thoughtfully designed to feel exciting, lively and reassuringly safe.
           </p>
           <Link href="/about" className="btn-secondary mt-8">
-            Learn about PlayNest
+            Learn about Vamskidszone
           </Link>
-        </div>
-
-        <div className="image-standalone">
-          <Image
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
-            alt="Children sliding into a ball pit"
-            width={1200}
-            height={900}
-          />
         </div>
       </section>
 
