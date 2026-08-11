@@ -21,31 +21,35 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="text-xl font-semibold tracking-tight text-slate-950">
-          {siteConfig.companyName}
+        <Link href="/" className="logo-mark" aria-label="PlayNest home">
+          <span className="logo-mark__badge" />
+          <span>{siteConfig.companyName}</span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {siteConfig.navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium transition-colors ${pathname === item.href ? 'text-brand' : 'text-slate-600 hover:text-slate-900'}`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {siteConfig.navigation.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`nav-link ${isActive ? 'active' : ''}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
           <Link href="/contact" className="btn-primary">
-            Send Enquiry
+            Plan a Visit
           </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white p-2 text-slate-700 transition hover:border-slate-300 hover:text-slate-950 lg:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/80 p-2 text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-950 lg:hidden"
           onClick={() => setMenuOpen((value) => !value)}
           aria-label="Toggle mobile menu"
         >
@@ -54,7 +58,7 @@ export function SiteHeader() {
       </div>
 
       <div className={`${menuOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300 lg:hidden`}>
-        <div className="container space-y-4 border-t border-slate-200/80 bg-white/95 py-5">
+        <div className="container space-y-3 border-t border-slate-200/80 bg-white/90 py-5 backdrop-blur-sm">
           {siteConfig.navigation.map((item) => (
             <Link
               key={item.href}
@@ -65,8 +69,8 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/contact" className="block rounded-2xl bg-brand-700 px-4 py-3 text-center text-sm font-semibold text-white shadow-soft hover:bg-brand-800" onClick={() => setMenuOpen(false)}>
-            Send Enquiry
+          <Link href="/contact" className="btn-primary mt-2 block w-full" onClick={() => setMenuOpen(false)}>
+            Plan a Visit
           </Link>
         </div>
       </div>

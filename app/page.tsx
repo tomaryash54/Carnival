@@ -10,192 +10,239 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div className="space-y-16 py-12 lg:py-20">
-      <section className="relative">
-        <div className="container grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-          <div className="py-12 lg:py-20">
-            <p className="section-eyebrow">PLAY • EXPLORE • IMAGINE</p>
-            <h1 className="mt-6 section-heading">Where Little Adventures Begin</h1>
-            <p className="mt-6 section-lead">
-              An exciting indoor play zone designed for big laughs, endless adventures and unforgettable family moments.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Link href="/contact" className="btn-primary">
-                Plan Your Visit
-              </Link>
-              <Link href="/contact" className="btn-secondary">
-                Book a Birthday Party
-              </Link>
+    <div className="pb-8">
+      <section className="hero-shell container">
+        <div className="hero-panel">
+          <div className="hero-grid">
+            <div className="hero-copy">
+              <div className="hero-badge">Play • Explore • Imagine</div>
+              <h1>Where Little Adventures Begin</h1>
+              <p>
+                Big adventures, happy memories and endless fun — all in one exciting indoor playzone designed to delight curious kids and reassure busy parents.
+              </p>
+              <div className="hero-actions">
+                <Link href="/contact" className="btn-primary">
+                  Plan Your Visit
+                </Link>
+                <Link href="/contact" className="btn-secondary">
+                  Birthday Parties
+                </Link>
+              </div>
             </div>
-          </div>
 
-          <div className="relative min-h-[380px] overflow-hidden rounded-lg">
-            <Image
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1400&q=80"
-              alt="Children playing in indoor playground"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 pointer-events-none">
-              {/* decorative floating shapes could be added via CSS */}
+            <div className="hero-visual" aria-hidden="true">
+              <div className="hero-bubble hero-bubble--yellow">Fun for every age</div>
+              <div className="hero-bubble hero-bubble--blue">Safe<br />and joyful</div>
+
+              <div className="decor-star" style={{ top: '16%', left: '18%' }} />
+              <div className="decor-star" style={{ top: '8%', right: '8%' }} />
+              <div className="decor-orb" style={{ top: '18%', right: '32%' }} />
+              <div className="decor-dot" style={{ bottom: '22%', left: '8%' }} />
+              <div className="decor-spark" style={{ bottom: '18%', right: '16%' }} />
+
+              <div className="hero-card hero-card--main">
+                <Image
+                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80"
+                  alt="Children playing in indoor playground"
+                  width={900}
+                  height={1100}
+                  priority
+                />
+              </div>
+
+              <div className="hero-card hero-card--small">
+                <Image
+                  src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=800&q=80"
+                  alt="Kids at a bright play area"
+                  width={700}
+                  height={900}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container">
-        <div className="grid gap-6 md:grid-cols-4">
+      <section className="container section-shell">
+        <div className="stats-row">
           {siteConfig.heroHighlights.map((item) => (
-            <div key={item.label} className="card p-6 text-center">
-              <p className="text-2xl font-bold text-brand">{item.value}</p>
-              <p className="mt-2 text-sm uppercase tracking-[0.18em] muted">{item.label}</p>
+            <div key={item.label} className="stat-panel">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="container grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <section className="container section-shell intro-panel">
         <div>
-          <p className="section-eyebrow">LET THE FUN BEGIN</p>
-          <h2 className="section-heading">More than a play area — it's a world of discovery.</h2>
-          <p className="mt-4 section-lead">
-            At PlayNest, children move, imagine and make memories while parents relax in comfortable, supervised surroundings. Our spaces are designed to be exciting for kids and reassuring for parents.
+          <p className="section-eyebrow">Let the fun begin</p>
+          <h2 className="section-heading">More than a play area — it’s a world of discovery.</h2>
+          <p className="section-lead mt-4">
+            At PlayNest, children move, imagine and make memories while parents relax in comfortable, supervised surroundings. Every zone is thoughtfully designed to feel exciting, lively and reassuringly safe.
           </p>
-          <Link href="/about" className="btn-secondary mt-6">
+          <Link href="/about" className="btn-secondary mt-8">
             Learn about PlayNest
           </Link>
         </div>
-        <div className="relative min-h-[360px] overflow-hidden rounded-lg">
+
+        <div className="image-standalone">
           <Image
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
-            alt="Children sliding into ball pit"
-            fill
-            className="object-cover"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+            alt="Children sliding into a ball pit"
+            width={1200}
+            height={900}
           />
         </div>
       </section>
 
-      <section className="container space-y-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="section-eyebrow">ACTIVITIES</p>
-            <h2 className="section-heading">Play experiences for every adventurer</h2>
-          </div>
-          <Link href="/services" className="btn-secondary">
-            Explore all experiences
-          </Link>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="card p-6 lg:col-span-2">
-            <h3 className="text-2xl font-semibold">Soft Play Arena & Ball Pit</h3>
-            <p className="mt-3 muted">A colourful padded arena ideal for climbing, tumbling and joyful discovery for younger children.</p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <Image src="https://images.unsplash.com/photo-1544117510-3e0f0f5f6b27?auto=format&fit=crop&w=800&q=80" alt="soft play" width={600} height={360} className="rounded-md object-cover" />
-              <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=800&q=80" alt="ball pit" width={600} height={360} className="rounded-md object-cover" />
+      <section className="feature-band section-shell">
+        <div className="container">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="section-eyebrow">Activities</p>
+              <h2 className="section-heading">Play experiences made for every adventurer</h2>
             </div>
+            <Link href="/services" className="btn-secondary">
+              Explore all experiences
+            </Link>
           </div>
 
-          <div className="card p-6">
-            <h3 className="text-2xl font-semibold">Trampolines & Active Play</h3>
-            <p className="mt-3 muted">Supervised sessions for high-energy fun, with safety harnesses and trained staff on hand.</p>
-          </div>
-
-          <div className="card p-6">
-            <h3 className="text-2xl font-semibold">Toddler Cove</h3>
-            <p className="mt-3 muted">A calm, sensory-friendly corner for 0–3 years with low-impact toys and soft textures.</p>
-          </div>
-
-          <div className="card p-6">
-            <h3 className="text-2xl font-semibold">Slides & Climbing</h3>
-            <p className="mt-3 muted">Giant slides and safe climbing structures crafted for confident play and exploration.</p>
-          </div>
-
-          <div className="card p-6">
-            <h3 className="text-2xl font-semibold">Interactive Games</h3>
-            <p className="mt-3 muted">Tech-enabled play stations and group games for family challenges and skill-building activities.</p>
+          <div className="experience-grid mt-8">
+            {[
+              {
+                number: '01',
+                title: 'Soft Play Arena',
+                description: 'A bright, padded adventure zone filled with climbing, crawling and sensory fun for curious little explorers.',
+                image: 'https://images.unsplash.com/photo-1544117510-3e0f0f5f6b27?auto=format&fit=crop&w=1200&q=80'
+              },
+              {
+                number: '02',
+                title: 'Ball Pit & Slides',
+                description: 'Fast-moving, joyful energy in a vibrant mix of slides, twists and giggles.',
+                image: 'https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1200&q=80'
+              },
+              {
+                number: '03',
+                title: 'Trampoline Fun',
+                description: 'Safe, supervised sessions designed for high-energy play and big smiles.',
+                image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80'
+              }
+            ].map((item) => (
+              <article key={item.title} className="experience-card">
+                <div className="experience-card__image">
+                  <Image src={item.image} alt={item.title} width={900} height={700} />
+                </div>
+                <div className="experience-card__meta">{item.number}</div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container rounded-lg border border-slate-100 bg-white p-10 shadow-soft">
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <section className="container section-shell">
+        <div className="feature-spotlight">
           <div>
-            <p className="section-eyebrow">WHY PARENTS LOVE PLAYNEST</p>
-            <h2 className="section-heading">A safe, clean and joyful place for kids and parents</h2>
-            <p className="mt-4 muted">Staffed by trained supervisors, rigorously cleaned, and designed with sight-lines and comfort for parents in mind.</p>
-            <ul className="mt-6 grid gap-3">
-              <li className="font-semibold">• Safety-first programs and certified equipment</li>
-              <li className="font-semibold">• Comfortable parent lounges with cafe-style refreshments</li>
-              <li className="font-semibold">• Flexible party packages and dedicated hosts</li>
+            <p className="section-eyebrow" style={{ color: 'white' }}>Why parents love PlayNest</p>
+            <h2 className="section-heading" style={{ color: 'white' }}>A safe, clean and joyful place for the whole family.</h2>
+            <p className="mt-4 text-base leading-7 text-slate-200">
+              From thoughtful layouts to trained staff and relaxed parent zones, every detail is designed to make play both exciting and stress-free.
+            </p>
+            <ul className="feature-list">
+              <li>Safety-first equipment and attentive supervision</li>
+              <li>Comfortable spaces where parents can relax</li>
+              <li>Flexible party packages and easy planning</li>
             </ul>
           </div>
-          <div className="relative min-h-[300px] overflow-hidden rounded-md">
-            <Image src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1000&q=80" alt="parents watching children play" fill className="object-cover" />
+
+          <div className="image-standalone">
+            <Image
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1000&q=80"
+              alt="Parents watching children play"
+              width={900}
+              height={800}
+            />
           </div>
         </div>
       </section>
 
-      <section className="container space-y-8">
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="section-eyebrow">MAKE THEIR BIG DAY EVEN BIGGER</p>
-            <h2 className="section-heading">Birthday Parties at PlayNest</h2>
-            <p className="mt-4 muted">We host memorable, stress-free parties with tailored packages, decorations and a dedicated host so families can enjoy the celebration.</p>
-            <Link href="/contact" className="btn-primary mt-6">Plan a Birthday Party</Link>
-          </div>
-          <div className="relative min-h-[280px] overflow-hidden rounded-md">
-            <Image src="https://images.unsplash.com/photo-1505577058444-a3dab14b3d02?auto=format&fit=crop&w=1000&q=80" alt="kids birthday party" fill className="object-cover" />
+      <section className="container section-shell">
+        <div className="party-panel">
+          <div className="party-layout">
+            <div>
+              <div className="party-tag">Birthday parties</div>
+              <h2 className="section-heading mt-4">Make their big day even bigger.</h2>
+              <p className="section-lead mt-4">
+                Stress-free celebrations with activity zones, party hosting and thoughtfully designed packages that keep the fun going.
+              </p>
+              <Link href="/contact" className="btn-primary mt-8">
+                Plan a Birthday Party
+              </Link>
+            </div>
+
+            <div className="image-standalone" style={{ minHeight: '360px' }}>
+              <Image
+                src="https://images.unsplash.com/photo-1505577058444-a3dab14b3d02?auto=format&fit=crop&w=1200&q=80"
+                alt="Birthday celebration in a kids playzone"
+                width={1200}
+                height={900}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="container">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="container section-shell">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="section-eyebrow">AGE GROUPS</p>
-            <h2 className="section-heading">Play sessions designed for every age</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              <div className="card p-4 text-center">
-                <p className="font-semibold">Toddlers</p>
-                <p className="muted">0–3 years</p>
+            <p className="section-eyebrow">Age groups</p>
+            <h2 className="section-heading">Play sessions designed for every age and energy level.</h2>
+            <div className="age-grid mt-8">
+              <div className="age-card">
+                <strong>Toddlers</strong>
+                <span>0–3 years</span>
               </div>
-              <div className="card p-4 text-center">
-                <p className="font-semibold">Little Explorers</p>
-                <p className="muted">4–7 years</p>
+              <div className="age-card">
+                <strong>Little Explorers</strong>
+                <span>4–7 years</span>
               </div>
-              <div className="card p-4 text-center">
-                <p className="font-semibold">Big Adventurers</p>
-                <p className="muted">7–12 years</p>
+              <div className="age-card">
+                <strong>Big Adventurers</strong>
+                <span>7–12 years</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-lg border border-slate-100 bg-white p-6 shadow-soft">
-            <h3 className="text-xl font-semibold">Ready for Some Serious Fun?</h3>
-            <p className="mt-2 muted">Planning a visit, birthday party or group event? Tell us what you're looking for.</p>
-            <div className="mt-4">
+          <div className="card-soft p-6 md:p-8">
+            <h3 className="text-3xl font-black leading-none text-slate-950">Ready for some serious fun?</h3>
+            <p className="mt-3 text-base leading-7 text-slate-600">
+              Planning a visit, birthday party or group event? Let us help you choose the perfect experience.
+            </p>
+            <div className="mt-6">
               <QueryForm pageLabel="Home" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="container text-center">
-        <h2 className="section-heading">Hear from families who love PlayNest</h2>
-        <p className="mt-4 muted">Demo testimonials from parents (placeholder content)</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            { quote: "Such a wonderful place for kids! My daughter didn't want to leave.", name: 'Priya', meta: 'Parent' },
-            { quote: "The staff were friendly and the whole space felt clean and safe.", name: 'Rahul', meta: 'Parent' },
-            { quote: "Our son's birthday party was effortless — highly recommend!", name: 'Neha', meta: 'Parent' }
-          ].map((t) => (
-            <div key={t.name} className="card p-6">
-              <p className="italic">“{t.quote}”</p>
-              <p className="mt-4 font-semibold">{t.name}</p>
-              <p className="muted text-sm">{t.meta}</p>
+      <section className="container section-shell">
+        <div className="testimonial-wrap">
+          <div className="testimonial-feature">
+            <div className="quote-mark">“</div>
+            <div>
+              <p className="section-eyebrow">Family love</p>
+              <p className="quote-box mt-2">
+                “The whole place feels premium, safe and full of life. My daughter didn’t want to leave and I loved how relaxed it felt as a parent.”
+              </p>
+              <div className="rating" aria-label="5 star rating">★★★★★</div>
+              <div className="mt-4">
+                <p className="font-extrabold text-slate-900">Priya S.</p>
+                <p className="text-sm uppercase tracking-[0.14em] text-slate-500">Parent of a 6-year-old</p>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
     </div>

@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const testimonials = [
-  { quote: "Such a wonderful place for kids! My daughter didn't want to leave.", name: 'Priya', meta: 'Weekend visit' },
+  { quote: "Such a wonderful place for kids! My daughter didn&apos;t want to leave.", name: 'Priya', meta: 'Weekend visit' },
   { quote: 'Our son loved the trampoline zone — staff were very attentive.', name: 'Amit', meta: 'Birthday party' },
   { quote: 'Clean, safe and so much fun; the toddler area is perfect.', name: 'Shreya', meta: 'Toddler play' },
   { quote: 'We organized a school group visit and the team handled everything professionally.', name: 'Mr. Kumar', meta: 'School visit' }
@@ -25,7 +25,7 @@ export default function TestimonialsPage() {
           </div>
           <div className="rounded-md bg-slate-50 p-8">
             <p className="text-sm uppercase tracking-[0.18em] text-brand">Plan a visit</p>
-            <p className="mt-3 muted">Ready to book a party or visit? Reach out and we'll help you plan.</p>
+            <p className="mt-3 muted">Ready to book a party or visit? Reach out and we&apos;ll help you plan.</p>
             <Link href="/contact" className="btn-primary mt-6 inline-flex">Contact Us</Link>
           </div>
         </div>
