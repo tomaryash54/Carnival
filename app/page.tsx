@@ -11,7 +11,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="pb-8">
-      <section className="hero-shell container">
+      <section className="hero-shell container reveal reveal-delay-100">
         <div className="hero-panel">
           <div className="hero-grid">
             <div className="hero-copy">
@@ -77,8 +77,8 @@ export default function HomePage() {
 
       <section className="container section-shell">
         <div className="stats-row">
-          {siteConfig.heroHighlights.map((item) => (
-            <div key={item.label} className="stat-panel">
+          {siteConfig.heroHighlights.map((item, index) => (
+            <div key={item.label} className="stat-panel reveal" style={{ animationDelay: `${index * 120}ms` }}>
               <strong>{item.value}</strong>
               <span>{item.label}</span>
             </div>
@@ -86,7 +86,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section-shell intro-panel">
+      <section className="container section-shell intro-panel reveal reveal-delay-150">
         <div>
           <p className="section-eyebrow">Let the fun begin</p>
           <h2 className="section-heading">More than a play area — it’s a world of discovery.</h2>
@@ -99,7 +99,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="feature-band section-shell">
+      <section className="feature-band section-shell reveal reveal-delay-200">
         <div className="container">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
@@ -131,8 +131,8 @@ export default function HomePage() {
                 description: 'Safe, supervised sessions designed for high-energy play and big smiles.',
                 image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80'
               }
-            ].map((item) => (
-              <article key={item.title} className="experience-card">
+            ].map((item, index) => (
+              <article key={item.title} className="experience-card reveal" style={{ animationDelay: `${index * 140}ms` }}>
                 <div className="experience-card__image">
                   <Image src={item.image} alt={item.title} width={900} height={700} />
                 </div>
@@ -145,7 +145,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section-shell">
+      <section className="container section-shell reveal reveal-delay-250">
         <div className="feature-spotlight">
           <div>
             <p className="section-eyebrow" style={{ color: 'white' }}>Why parents love Vamskidszone</p>
@@ -171,7 +171,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section-shell">
+      <section className="container section-shell reveal reveal-delay-300">
         <div className="party-panel">
           <div className="party-layout">
             <div>
@@ -197,7 +197,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section-shell">
+      <section className="container section-shell reveal reveal-delay-350">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <p className="section-eyebrow">Age groups</p>
@@ -230,7 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section-shell">
+      <section className="container section-shell reveal reveal-delay-400">
         <div className="testimonial-wrap">
           <div className="testimonial-feature">
             <div className="quote-mark">“</div>
