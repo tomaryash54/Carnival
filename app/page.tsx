@@ -54,7 +54,7 @@ export default function HomePage() {
 
               <div className="hero-card hero-card--main">
                 <Image
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80"
+                  src="/site-images/home-hero-main.png"
                   alt="Children enjoying active play in a colourful indoor zone"
                   width={900}
                   height={1100}
@@ -64,7 +64,7 @@ export default function HomePage() {
 
               <div className="hero-card hero-card--small">
                 <Image
-                  src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=800&q=80"
+                  src="/site-images/home-hero-small.png"
                   alt="Bright play area with children laughing and playing"
                   width={700}
                   height={900}
@@ -117,19 +117,19 @@ export default function HomePage() {
                 number: '01',
                 title: 'Soft Play Arena',
                 description: 'A bright, padded adventure zone filled with climbing, crawling and sensory fun for curious little explorers.',
-                image: 'https://images.unsplash.com/photo-1544117510-3e0f0f5f6b27?auto=format&fit=crop&w=1200&q=80'
+                image: '/site-images/home-activity-soft-play.png'
               },
               {
                 number: '02',
                 title: 'Ball Pit & Slides',
                 description: 'Fast-moving, joyful energy in a vibrant mix of slides, twists and giggles.',
-                image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80'
+                image: '/site-images/home-activity-ball-pit.png'
               },
               {
                 number: '03',
                 title: 'Trampoline Fun',
                 description: 'Safe, supervised sessions designed for high-energy play and big smiles.',
-                image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80'
+                image: '/site-images/home-activity-trampoline.png'
               }
             ].map((item, index) => (
               <article key={item.title} className="experience-card reveal" style={{ animationDelay: `${index * 140}ms` }}>
@@ -162,7 +162,7 @@ export default function HomePage() {
 
           <div className="image-standalone">
             <Image
-              src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1000&q=80"
+              src="/site-images/home-parents-zone.png"
               alt="Parents watching children enjoy a playful indoor space"
               width={900}
               height={800}
@@ -193,7 +193,7 @@ export default function HomePage() {
 
             <div className="image-standalone" style={{ minHeight: '360px' }}>
               <Image
-                src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80"
+                src="/site-images/home-birthday-party.png"
                 alt="Birthday celebration with kids in a playful venue"
                 width={1200}
                 height={900}

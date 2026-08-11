@@ -22,7 +22,7 @@ export default function AboutPage() {
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1f?auto=format&fit=crop&w=1200&q=80" alt="children playing at Vamskidszone" fill className="object-cover" />
+            <Image src="/site-images/about-hero.png" alt="children playing at Vamskidszone" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <p className="muted mt-3">Smart sight-lines, comfortable seating and a dedicated cafe mean parents can enjoy a relaxed visit while children have full-on fun.</p>
           </div>
           <div className="rounded-md overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1558981403-c5a1d0f1d6f6?auto=format&fit=crop&w=1000&q=80" alt="Vamskidszone interior" width={900} height={560} className="object-cover" />
+            <Image src="/site-images/about-family-zone.png" alt="Vamskidszone interior" width={900} height={560} className="object-cover" />
           </div>
         </div>
       </section>
