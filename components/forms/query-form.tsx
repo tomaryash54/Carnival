@@ -209,32 +209,32 @@ export function QueryForm({ pageLabel, formId, hideSubmitButton = false, onSubmi
           {errors.message ? <p className="field-error">{errors.message}</p> : null}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-          <label className="flex cursor-pointer items-start gap-3 text-sm text-slate-700 md:col-span-2">
+        <div className="grid gap-3">
+          <label className="flex w-full cursor-pointer items-start gap-3 text-sm text-slate-700">
             <input
               type="checkbox"
               checked={formState.consent}
               onChange={(event) => handleChange('consent', event.target.checked)}
-              className="mt-1 h-4 w-4 rounded border-slate-300 text-brand-700 focus:ring-brand-500"
+              className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-700 focus:ring-brand-500"
               disabled={!canSubmit}
             />
-            <span>
+            <span className="min-w-0 leading-relaxed">
               I agree to be contacted by Vamskidszone regarding my enquiry. *
             </span>
           </label>
-          {errors.consent ? <p className="field-error md:col-span-2">{errors.consent}</p> : null}
+          {errors.consent ? <p className="field-error">{errors.consent}</p> : null}
         </div>
 
         <input type="text" name="honeypot" value={formState.honeypot} onChange={(event) => handleChange('honeypot', event.target.value)} autoComplete="off" className="sr-only" tabIndex={-1} aria-hidden={"true"} />
 
         <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-6">
-          <div>
+          <div className="min-w-0">
             {status === 'success' ? (
-              <p className="text-sm font-semibold" style={{ color: 'rgb(16 185 129)' }}>{message}</p>
+              <p className="text-sm font-semibold leading-relaxed" style={{ color: 'rgb(16 185 129)' }}>{message}</p>
             ) : status === 'error' ? (
-              <p className="text-sm font-semibold" style={{ color: '#d14343' }}>{message}</p>
+              <p className="text-sm font-semibold leading-relaxed" style={{ color: '#d14343' }}>{message}</p>
             ) : (
-              <p className="text-sm muted">We aim to follow up within 24 hours.</p>
+              <p className="text-sm leading-relaxed muted">We aim to follow up within 24 hours.</p>
             )}
           </div>
           {!hideSubmitButton ? (
