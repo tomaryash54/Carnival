@@ -317,11 +317,9 @@ select:focus {
   isolation: isolate;
   border-radius: 2.2rem;
   border: 1px solid rgba(17, 28, 59, 0.07);
-  background:
-    linear-gradient(120deg, rgba(17, 28, 59, 0.78), rgba(20, 38, 72, 0.58)),
-    url('/banner.png') center/cover no-repeat,
-    url('/site-images/home-hero-main.png') center/cover no-repeat;
-  background-blend-mode: multiply, normal, normal;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: var(--shadow-soft);
 }
 
@@ -808,10 +806,9 @@ select:focus {
   gap: 2rem;
   align-items: center;
   border-radius: 2rem;
-  background:
-    linear-gradient(135deg, rgba(17, 28, 59, 0.96), rgba(29, 43, 94, 0.94) 52%, rgba(33, 56, 111, 0.92)),
-    url('/site-images/about-family-zone.png') center/cover no-repeat;
-  background-blend-mode: overlay, normal;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 2rem;
   color: white;
   box-shadow: var(--shadow-soft);
@@ -861,9 +858,9 @@ select:focus {
   position: relative;
   overflow: hidden;
   border-radius: 2rem;
-  background:
-    linear-gradient(120deg, rgba(255, 191, 63, 0.18), rgba(255, 122, 89, 0.12), rgba(109, 214, 255, 0.12)),
-    url('/site-images/home-birthday-party.png') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid rgba(26, 36, 75, 0.05);
   box-shadow: var(--shadow-soft);
 }

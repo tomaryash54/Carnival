@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, withBasePath } from '@/lib/site-config';
 
 export const metadata = {
   title: `Play Experiences | ${siteConfig.companyName}`,
@@ -28,7 +28,7 @@ export default function ServicesPage() {
             <p className="mt-4 section-lead">From toddler-friendly corners to high-energy trampolines, our experiences are curated for safety, joy and discovery.</p>
           </div>
           <div className="relative min-h-[360px] overflow-hidden rounded-md">
-            <Image src="/site-images/home-hero-main.png" alt="kids play area" fill className="object-cover" />
+            <Image src={withBasePath('/site-images/home-hero-main.png')} alt="kids play area" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
             <Link href="/contact" className="btn-primary mt-6 inline-flex">Plan a Party</Link>
           </div>
           <div className="rounded-md overflow-hidden">
-            <Image src="/site-images/home-birthday-party.png" alt="kids birthday party" width={900} height={560} className="object-cover" />
+            <Image src={withBasePath('/site-images/home-birthday-party.png')} alt="kids birthday party" width={900} height={560} className="object-cover" />
           </div>
         </div>
       </section>

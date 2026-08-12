@@ -1,7 +1,8 @@
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { QueryForm } from '@/components/forms/query-form';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, withBasePath } from '@/lib/site-config';
 
 export const metadata = {
   title: siteConfig.title,
@@ -9,10 +10,25 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  const heroPanelStyle: CSSProperties = {
+    backgroundImage: `linear-gradient(120deg, rgba(17, 28, 59, 0.78), rgba(20, 38, 72, 0.58)), url("${withBasePath('/banner.png')}") , url("${withBasePath('/site-images/home-hero-main.png')}")`,
+    backgroundBlendMode: 'multiply, normal, normal'
+  };
+
+  const featureSpotlightStyle: CSSProperties = {
+    backgroundImage: `linear-gradient(135deg, rgba(17, 28, 59, 0.96), rgba(29, 43, 94, 0.94) 52%, rgba(33, 56, 111, 0.92)), url("${withBasePath('/site-images/about-family-zone.png')}")`,
+    backgroundBlendMode: 'overlay, normal'
+  };
+
+  const partyPanelStyle: CSSProperties = {
+    backgroundImage: `linear-gradient(120deg, rgba(255, 191, 63, 0.18), rgba(255, 122, 89, 0.12), rgba(109, 214, 255, 0.12)), url("${withBasePath('/site-images/home-birthday-party.png')}")`,
+    backgroundBlendMode: 'normal, normal'
+  };
+
   return (
     <div className="pb-8">
       <section className="hero-shell container reveal reveal-delay-100">
-        <div className="hero-panel">
+        <div className="hero-panel" style={heroPanelStyle}>
           <div className="hero-grid">
             <div className="hero-copy">
               <div className="hero-badge">Play • Explore • Imagine</div>
@@ -54,7 +70,7 @@ export default function HomePage() {
 
               <div className="hero-card hero-card--main">
                 <Image
-                  src="/site-images/home-hero-main.png"
+                  src={withBasePath('/site-images/home-hero-main.png')}
                   alt="Children enjoying active play in a colourful indoor zone"
                   width={900}
                   height={1100}
@@ -64,7 +80,7 @@ export default function HomePage() {
 
               <div className="hero-card hero-card--small">
                 <Image
-                  src="/site-images/home-hero-small.png"
+                  src={withBasePath('/site-images/home-hero-small.png')}
                   alt="Bright play area with children laughing and playing"
                   width={700}
                   height={900}
@@ -117,19 +133,19 @@ export default function HomePage() {
                 number: '01',
                 title: 'Soft Play Arena',
                 description: 'A bright, padded adventure zone filled with climbing, crawling and sensory fun for curious little explorers.',
-                image: '/site-images/home-activity-soft-play.png'
+                image: withBasePath('/site-images/home-activity-soft-play.png')
               },
               {
                 number: '02',
                 title: 'Ball Pit & Slides',
                 description: 'Fast-moving, joyful energy in a vibrant mix of slides, twists and giggles.',
-                image: '/site-images/home-activity-ball-pit.png'
+                image: withBasePath('/site-images/home-activity-ball-pit.png')
               },
               {
                 number: '03',
                 title: 'Trampoline Fun',
                 description: 'Safe, supervised sessions designed for high-energy play and big smiles.',
-                image: '/site-images/home-activity-trampoline.png'
+                image: withBasePath('/site-images/home-activity-trampoline.png')
               }
             ].map((item, index) => (
               <article key={item.title} className="experience-card reveal" style={{ animationDelay: `${index * 140}ms` }}>
@@ -146,7 +162,7 @@ export default function HomePage() {
       </section>
 
       <section className="container section-shell reveal reveal-delay-250">
-        <div className="feature-spotlight">
+        <div className="feature-spotlight" style={featureSpotlightStyle}>
           <div>
             <p className="section-eyebrow" style={{ color: 'white' }}>Why parents love Vamskidszone</p>
             <h2 className="section-heading" style={{ color: 'white' }}>A safe, clean and joyful place for the whole family.</h2>
@@ -162,7 +178,7 @@ export default function HomePage() {
 
           <div className="image-standalone">
             <Image
-              src="/site-images/about-family-zone.png"
+              src={withBasePath('/site-images/about-family-zone.png')}
               alt="Parents watching children enjoy a playful indoor space"
               width={900}
               height={800}
@@ -172,7 +188,7 @@ export default function HomePage() {
       </section>
 
       <section className="container section-shell reveal reveal-delay-300">
-        <div className="party-panel">
+        <div className="party-panel" style={partyPanelStyle}>
           <div className="party-celebration" aria-hidden="true">
             <span className="party-burst party-burst--1" />
             <span className="party-burst party-burst--2" />
@@ -193,7 +209,7 @@ export default function HomePage() {
 
             <div className="image-standalone" style={{ minHeight: '360px' }}>
               <Image
-                src="/site-images/home-birthday-party.png"
+                src={withBasePath('/site-images/home-birthday-party.png')}
                 alt="Birthday celebration with kids in a playful venue"
                 width={1200}
                 height={900}

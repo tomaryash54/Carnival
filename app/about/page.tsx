@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, withBasePath } from '@/lib/site-config';
 
 export const metadata = {
   title: `About | ${siteConfig.companyName}`,
@@ -22,7 +22,7 @@ export default function AboutPage() {
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="/site-images/about-family-zone.png" alt="children playing at Vamskidszone" fill className="object-cover" />
+            <Image src={withBasePath('/site-images/about-family-zone.png')} alt="children playing at Vamskidszone" fill className="object-cover" />
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <p className="muted mt-3">Smart sight-lines, comfortable seating and a dedicated cafe mean parents can enjoy a relaxed visit while children have full-on fun.</p>
           </div>
           <div className="rounded-md overflow-hidden">
-            <Image src="/site-images/about-family-zone.png" alt="Vamskidszone interior" width={900} height={560} className="object-cover" />
+            <Image src={withBasePath('/site-images/about-family-zone.png')} alt="Vamskidszone interior" width={900} height={560} className="object-cover" />
           </div>
         </div>
       </section>

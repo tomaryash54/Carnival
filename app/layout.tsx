@@ -3,7 +3,7 @@ import './globals.css';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { SiteHeader } from '@/components/layout/site-header';
 import { QueryPopup } from '@/components/layout/query-popup';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, withBasePath } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: siteConfig.siteUrl,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: withBasePath('/site-images/home-hero-main.png'),
         width: 1200,
         height: 630,
         alt: `${siteConfig.companyName} preview`
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     ]
   },
   icons: {
-    icon: '/favicon.ico'
+    icon: withBasePath('/favicon.ico')
   }
 };
 
