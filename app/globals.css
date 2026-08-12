@@ -797,7 +797,7 @@ select:focus {
   border-radius: 2rem;
   background:
     linear-gradient(135deg, rgba(17, 28, 59, 0.96), rgba(29, 43, 94, 0.94) 52%, rgba(33, 56, 111, 0.92)),
-    url('/site-images/feature-spotlight-bg.png') center/cover no-repeat;
+    url('/site-images/home-parents-zone.png') center/cover no-repeat;
   background-blend-mode: overlay, normal;
   padding: 2rem;
   color: white;
