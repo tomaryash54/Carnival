@@ -22,7 +22,7 @@ export default function AboutPage() {
           </div>
 
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="/site-images/about-hero.png" alt="children playing at Vamskidszone" fill className="object-cover" />
+            <Image src="/site-images/about-family-zone.png" alt="children playing at Vamskidszone" fill className="object-cover" />
           </div>
         </div>
       </section>

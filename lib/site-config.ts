@@ -7,7 +7,7 @@ export const siteConfig = {
   phone: '+91 98765 43210',
   email: 'hello@vamskidszone.com',
   address: 'Sector 47, Gurugram, Haryana, India',
-  ogImage: '/site-images/og-image.png',
+  ogImage: '/site-images/home-hero-main.png',
   mapEmbedUrl:
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ||
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.609758729071!2d77.04859077471821!3d28.464868992718466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a2b8ce0c9df%3A0xd8f2a0662e1f6c7!2sGurugram%2C%20Haryana%2C%20India!5e0!3m2!1sen!2sus!4v1712824927119!5m2!1sen!2sus',

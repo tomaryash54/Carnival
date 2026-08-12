@@ -28,7 +28,7 @@ export default function SpecialtyPage() {
             <Link href="/contact" className="btn-primary mt-6 inline-flex">Plan a Visit</Link>
           </div>
           <div className="relative min-h-[320px] overflow-hidden rounded-md">
-            <Image src="/site-images/specialty-hero.png" alt="Vamskidszone safety" fill className="object-cover" />
+            <Image src="/site-images/home-hero-small.png" alt="Vamskidszone safety" fill className="object-cover" />
           </div>
         </div>
       </section>

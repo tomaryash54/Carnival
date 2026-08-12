@@ -162,7 +162,7 @@ export default function HomePage() {
 
           <div className="image-standalone">
             <Image
-              src="/site-images/home-parents-zone.png"
+              src="/site-images/about-family-zone.png"
               alt="Parents watching children enjoy a playful indoor space"
               width={900}
               height={800}
